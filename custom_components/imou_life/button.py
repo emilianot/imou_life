@@ -55,6 +55,15 @@ class ImouButton(ImouEntity, ButtonEntity):
             for entity in self.coordinator.entities:
                 if entity.sensor_instance.get_name() in "motionAlarm":
                     await entity.async_update_ha_state()
+        if self.sensor_instance.get_name() == "refreshPTZ":
+            # update the motionAlarm sensor
+            await self.coordinator.device.get_sensor_by_name(
+                "ptzPosition"
+            ).async_update()
+            # ask HA to update its state based on the new value
+            for entity in self.coordinator.entities:
+                if entity.sensor_instance.get_name() in "ptzPosition":
+                    await entity.async_update_ha_state()
 
     @property
     def device_class(self) -> str:

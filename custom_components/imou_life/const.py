@@ -79,6 +79,7 @@ SENSOR_ICONS = {
     "restartDevice": "mdi:restart",
     "refreshData": "mdi:refresh",
     "refreshAlarm": "mdi:refresh",
+    "refreshPTZ": "mdi:refresh",
     # sirens
     "siren": "mdi:alarm-light",
     # cameras
